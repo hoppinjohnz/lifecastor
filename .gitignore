@@ -15,6 +15,7 @@
 /tmp
 
 # Ignore other unneeded files.
+*.bak
 z
 z.diff
 nohup.out

@@ -1,6 +1,6 @@
 # Lifecastor
 
-This is an application for [*Life-Time Personal Finance Forecast/Simulation*](http://tranquil-headland-5582.herokuapp.com/) by [Zolutions LL](http://zolutionsllc.com/).
+This is an application for [*Life-Time Personal Finance Forecast/Simulation*](http://tranquil-headland-5582.herokuapp.com/) by [Zolutions LLC](http://zolutionsllc.com/).
 
 * Easy to modify input parameters allow you to run endless what-if simulations so that you can understand your financial future. 
 

@@ -12,7 +12,7 @@ Statistically forecast your estate and wealth.
 
 Display you simulated wealth paths into the future.
 
-Please send comments and report issues to [John](john@zolutionsllc.com)
+Please send comments and report issues to John at john@zolutionsllc.com.
 
 <!---
 This is the sample application for

@@ -5,5 +5,13 @@ FactoryGirl.define do
     password "foobarfoobar"
     password_confirmation "foobarfoobar"
   end
-end
 
+  factory :plan do
+    expense_mean  50000.0
+    expense_sd    10000.0
+    income        90000.0
+    increase_mean     0.03
+    increase_sd       0.005
+    user
+  end
+end

@@ -26,6 +26,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:plans) }
 
   it { should be_valid }
 
@@ -132,5 +133,20 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "plan associations" do
+
+    before { @user.save }
+    let!(:older_plan) do 
+      FactoryGirl.create(:plan, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_plan) do
+      FactoryGirl.create(:plan, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right plans in the right order" do
+      @user.plans.should == [newer_plan, older_plan]
+    end
   end
 end

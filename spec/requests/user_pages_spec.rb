@@ -6,10 +6,19 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:p1) { FactoryGirl.create(:plan, user: user, income: 12345) }
+    let!(:p2) { FactoryGirl.create(:plan, user: user, income: 12345) }
+
     before { visit user_path(user) }
 
     it { should have_selector('h1',    text: user.name) }
     it { should have_selector('title', text: user.name) }
+
+    describe "plans" do
+      it { should have_content(p1.income) }
+      it { should have_content(p2.income) }
+      it { should have_content(user.plans.count) }
+    end
   end
 
   describe "signup page" do

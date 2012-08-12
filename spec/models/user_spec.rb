@@ -148,5 +148,13 @@ describe User do
     it "should have the right plans in the right order" do
       @user.plans.should == [newer_plan, older_plan]
     end
+
+    it "should destroy associated plans" do
+      plans = @user.plans
+      @user.destroy
+      plans.each do |p|
+        Plan.find_by_id(p.id).should be_nil
+      end
+    end
   end
 end

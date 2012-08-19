@@ -3,5 +3,8 @@
   <span class="timestamp">
     Created <%= time_ago_in_words(plan.created_at) %> ago.
   </span>
+  <% if current_user?(plan.user) %>
+    <%= link_to "delete", plan, method: :delete, data: { confirm: "You sure?" }, title: plan.income %>
+  <% end %>
 </li>
 

@@ -28,4 +28,16 @@ describe "PlanPages" do
       end
     end
   end
+
+  describe "plan destruction" do
+    before { FactoryGirl.create(:plan, user: user) }
+
+    describe "as correct user" do
+      before { visit root_path }
+
+      it "should delete a plan" do
+        expect { click_link "delete" }.should change(Plan, :count).by(-1)
+      end
+    end
+  end
 end

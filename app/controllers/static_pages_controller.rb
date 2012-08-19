@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
-    @plan = current_user.plans.build if signed_in?
+    if signed_in?
+      @plan = current_user.plans.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
   end
 
   def help

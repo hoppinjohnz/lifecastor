@@ -27,6 +27,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:plans) }
+  it { should respond_to(:feed) }
 
   it { should be_valid }
 
@@ -155,6 +156,16 @@ describe User do
       plans.each do |p|
         Plan.find_by_id(p.id).should be_nil
       end
+    end
+
+    describe "status" do
+      let(:others_plan) do
+        FactoryGirl.create(:plan, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_plan) }
+      its(:feed) { should include(older_plan) }
+      its(:feed) { should_not include(others_plan) }
     end
   end
 end

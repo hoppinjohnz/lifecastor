@@ -1,6 +1,18 @@
+require './lifecastor'
+
 class PlansController < ApplicationController
   before_filter :signed_in_user
   before_filter :correct_user,   only: :destroy
+
+  def show
+    @plan = current_user.plans.find_by_id(params[:id])
+    p '11111111111111111111111111111'
+    p @plan.income.to_i
+    Lifecastor.run
+    # use this plan to lifecast
+    #
+    @result = 'best plan ever'
+  end
 
   def create
     @plan = current_user.plans.build(params[:plan])

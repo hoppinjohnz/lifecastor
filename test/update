@@ -1,0 +1,3 @@
+#!/bin/bash
+cp -p zz.f archive.f
+cp -p zz.t archive.t
